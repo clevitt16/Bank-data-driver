@@ -20,7 +20,7 @@ library(pdftools)
 #
 #  TO RUN:
 #  source("main.R")
-#  main("1993B1_1.pdf", 1, "Fairfield")
+#  main("test/1993B1_1.pdf", 1, "Fairfield")
 #
 ########################################################################################
 
