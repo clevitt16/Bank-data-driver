@@ -41,6 +41,10 @@ dataProcessing <- function(splitColumns, origCounty, state, origBank) {
         indexOfCounty <- indexOfCounty[1]
         theoreticallyNewCountyLine <- strsplit(columnOne[indexOfCounty], " ")[[1]]
         indexOfParenString <- grep("(", theoreticallyNewCountyLine, fixed = TRUE)
+        if (length(indexOfParenString) > 1) {
+            theoreticallyNewCountyLine <- theoreticallyNewCountyLine[-indexOfParenString[1]]
+            indexOfParenString <- indexOfParenString[-2]
+        }
         parenString <- theoreticallyNewCountyLine[indexOfParenString] # edge case: tesseract reads County (003 )
         if (grep(")", theoreticallyNewCountyLine, fixed = TRUE) == indexOfParenString + 1){
             parenString <- paste0(parenString, theoreticallyNewCountyLine[indexOfParenString + 1])
